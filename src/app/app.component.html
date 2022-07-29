@@ -65,16 +65,9 @@
   }
 </style>
 
-<div fxFlexFill fxLayout="column">
-  <app-toolbar class="toolbar"></app-toolbar>
-
-  <div fxFlex class="app-content">
-    <router-outlet></router-outlet>
-  </div>
-
-  <footer class="footer">Created by David Hill</footer>
-</div>
-
+<app-template fxFlex>
+  <router-outlet></router-outlet>
+</app-template>
 
 <div class="content" role="main">
   <svg id="clouds" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
