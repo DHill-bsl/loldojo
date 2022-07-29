@@ -1,0 +1,16 @@
+<mat-sidenav-container fxFlex style="background-color: transparent;"> 
+
+    <mat-sidenav opened mode="side">
+        <app-sidenav fxFlex></app-sidenav>
+    </mat-sidenav>
+
+    <mat-sidenav-content fxFlex fxLayout="column">
+
+        <div fxFlex class="app-content">
+            <ng-content></ng-content>
+        </div>
+
+        <footer class="footer">Created by David Hill & Josh Lanfear</footer>
+    </mat-sidenav-content>
+
+</mat-sidenav-container>

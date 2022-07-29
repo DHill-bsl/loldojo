@@ -10,6 +10,14 @@ mat-icon {
   font-size: 22px !important;
 }
 
+img {
+  -khtml-user-select: none;
+  -o-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 $my-primary: mat.define-palette(mat.$blue-gray-palette, 800);
 $my-accent: mat.define-palette(mat.$indigo-palette, A200, A100, A400);
 $my-warn: mat.define-palette(mat.$red-palette);
@@ -23,7 +31,7 @@ $my-theme: mat.define-light-theme((
 ));
 
 $typography-configuration: mat.define-typography-config(
-  $font-family: '"Roboto", sans-serif'
+  $font-family: '"Exo", sans-serif'
 );
 
 @include mat.all-component-themes($my-theme);

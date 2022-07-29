@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ToolbarComponent } from './toolbar/toolbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
@@ -29,6 +28,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioButton, MatRadioModule } from '@angular/material/radio';
 import { DojoBattleComponent } from './dojo/dojo-battle/dojo-battle.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { TemplateComponent } from './template/template.component';
 
 const AngularMaterialModules = [
   MatButtonModule,
@@ -39,21 +41,23 @@ const AngularMaterialModules = [
   MatStepperModule,
   MatFormFieldModule,
   MatSelectModule,
-  MatRadioModule
+  MatRadioModule,
+  MatSidenavModule
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    ToolbarComponent,
     AccountsComponent,
     BattleContainerComponent,
     HallOfFameComponent,
     BattleTableComponent,
     DojoComponent,
     DojoWizardComponent,
-    DojoBattleComponent
+    DojoBattleComponent,
+    SidenavComponent,
+    TemplateComponent
   ],
   imports: [
     BrowserModule,
