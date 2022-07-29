@@ -1,0 +1,15 @@
+<div style="overflow-x: hidden" fxLayout="column" fxLayoutAlign="center center" *ngIf="data">
+  <div fxLayout="row">
+    <div class="opponent slide-in-left" style="margin-top: 50px">{{ data.opponent1 }}</div>
+    <div class="vs" style="margin-top: 175px;">VS</div>
+    <div class="opponent slide-in-right" style="margin-top: 250px;">{{ data.opponent2 }}</div>
+  </div>
+
+  <div class="lane">In the {{ data.lane }} lane</div>
+  <div class="champion-format">With {{ data.championFormat }} champions</div>
+
+  <div fxLayout="column">
+    <p>Hit the start button once summoners rift has loaded</p>
+    <button mat-raised-button color="primary">Start</button>
+  </div>
+</div>

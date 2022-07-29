@@ -1,0 +1,57 @@
+<form *ngIf="form" [formGroup]="form">
+  <mat-stepper orientation="vertical" style="background: transparent">
+    <mat-step fxFlex>
+      <ng-template matStepLabel>Who are you?</ng-template>
+
+      <mat-form-field>
+        <mat-select disableOptionCentering formControlName="opponent1" (valueChange)="onOpponent1Change($event)">
+          <mat-option *ngFor="let account of accounts" [value]="account.name">
+            {{ account.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Choose your adversary</ng-template>
+      <mat-form-field>
+        <mat-select disableOptionCentering formControlName="opponent2">
+          <div *ngFor="let account of accounts">
+            <mat-option *ngIf="account.name !== form.get('opponent1')?.value" [value]="account.name">
+              {{ account.name }}
+            </mat-option>
+          </div>
+        </mat-select>
+      </mat-form-field>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Settings</ng-template>
+      <h3>Choose your lane</h3>
+      <mat-radio-group fxLayout="column" color="primary" formControlName="lane">
+        <mat-radio-button value="Top">Top</mat-radio-button>
+        <mat-radio-button value="Mid">Mid</mat-radio-button>
+        <mat-radio-button value="Bot">Bot</mat-radio-button>
+        <mat-radio-button value="Random">The gods shall decide my fate</mat-radio-button>
+      </mat-radio-group>
+
+      <h3>Choose your format</h3>
+      <mat-radio-group fxLayout="column" color="primary" formControlName="championFormat">
+        <mat-radio-button value="Assassin">Assassin</mat-radio-button>
+        <mat-radio-button value="Fighter">Fighter</mat-radio-button>
+        <mat-radio-button value="Mage">Mage</mat-radio-button>
+        <mat-radio-button value="Marksman">Marksman</mat-radio-button>
+        <mat-radio-button value="Support">Support</mat-radio-button>
+        <mat-radio-button value="Tank">Tank</mat-radio-button>
+        <mat-radio-button value="Random1">Random 1</mat-radio-button>
+        <mat-radio-button value="Random3">Random 3</mat-radio-button>
+        <mat-radio-button value="All">All</mat-radio-button>
+      </mat-radio-group>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Do battle</ng-template>
+      <button [disabled]="!form.valid" mat-button mat-raised-button color="accent" (click)="onComplete()">
+        <span>Onwards, to glory or ruin</span>
+        <mat-icon>gamepad</mat-icon>
+      </button>
+    </mat-step>
+  </mat-stepper>
+</form>

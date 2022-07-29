@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "battle-app-29c48"
+  },
+  "targets": {
+    "battle-app-29c48": {
+      "hosting": {
+        "battle-app": [
+          "battle-app-29c48"
+        ]
+      }
+    }
+  }
+}
