@@ -1,6 +1,44 @@
+:host {
+font-family: 'exo', sans-serif;
+color: #fff;
+}
+
 .container {
-  background-color: whitesmoke;
+  background: linear-gradient(to right, #191b2a, #20192a);;
   padding: 0 10px 20px 10px;
+  border-radius: 20px;
+}
+
+.battle--container__wrapping {
+  padding: 30px;
+  position: relative;
+}
+
+
+.battle--container__image img{
+  position: absolute;
+  height: 140%;
+  left: 75%;
+  bottom: 0%;
+}
+
+.battle--container__text {
+  margin-bottom: 20px;
+}
+
+.battle--container__description {
+  font-size: 1rem;
+  color: #606377;
+  font-size: 400;
+  line-height: 1.7;
+}
+
+
+
+.battle--container__title {
+ font-size: 2rem !important; 
+ font-weight: 700;
+ margin-bottom: 10px;
 }
 
 .text-focus-in {

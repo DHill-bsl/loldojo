@@ -1,7 +1,19 @@
-<div class="container" fxFlex fxLayout="column" fxLayoutAlign="center center">
-  <h3 class="text-focus-in"><i>"{{ selectedQuote }}"</i></h3>
-  <button routerLink="dojo" matRipple style="height: 50px;" mat-button mat-raised-button color="accent">
-    <span>Enter the dojo&nbsp;</span>
-    <mat-icon>gamepad</mat-icon>
-  </button>
+<div class="container battle--container__wrapping" fxFlex fxLayout="row" fxLayoutAlign="center left">
+  <!-- <h3 class="text-focus-in"><i>"{{ selectedQuote }}"</i></h3> -->
+  <div class="battle--container__content" fxFlex="70" fxLayout="column" >
+    <div class="battle--container__text" fxFlex fxLayout="column">
+      <span class="battle--container__title">Pick your challenger</span>
+      <span class="battle--container__description">Pellentesque laoreet sem vitae odio finibus, a consequat sem auctor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet laoreet dui. Aenean lacinia purus a rutrum fringilla. Praesent sit amet consequat felis.</span>
+    </div>
+
+    <div class="battle--container__button">
+    <button routerLink="dojo" matRipple style="width: fit-content; height: 50px;" mat-button mat-raised-button color="accent">
+      <span>Enter the dojo&nbsp;</span>
+      <mat-icon>gamepad</mat-icon>
+    </button>
+    </div>
+  </div>
+  <div class="battle--container__image" fxFlex fxlayoutalign="end">
+    <img src="../../assets/lee-sin.png" alt="lee-sin__start-battle">
+  </div>
 </div>

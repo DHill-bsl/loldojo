@@ -1,11 +1,12 @@
 :host {
     display: block;
     background: #191b2a;
-    border-radius: 15px;
+    border-radius: 0px 25px 0px 0px;
 }
 
 .sidenav--content__container {
     padding: 20px;
+    
 }
 
 .sidenav--content__logo {
@@ -14,6 +15,7 @@
     max-height: 100%;
     width: 35px;
     height: auto;
+    margin-bottom: 50px;
 }
 
 .sidenav--content__logo:hover {
@@ -42,3 +44,11 @@
     }
   }
   
+  .sidenav--content__navigation {
+    gap: 30px;
+    margin: 0 auto;
+  }
+
+  .sidenav--router__icon {
+    cursor: pointer;
+  }
