@@ -1,6 +1,6 @@
 :host {
-font-family: 'exo', sans-serif;
-color: #fff;
+  font-family: 'exo', sans-serif;
+  color: #fff;
 }
 
 .container {
@@ -14,7 +14,6 @@ color: #fff;
   position: relative;
 }
 
-
 .battle--container__image img{
   position: absolute;
   height: 140%;
@@ -27,46 +26,47 @@ color: #fff;
 }
 
 .battle--container__description {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #606377;
   font-size: 400;
   line-height: 1.7;
 }
 
-
-
 .battle--container__title {
- font-size: 2rem !important; 
- font-weight: 700;
- margin-bottom: 10px;
+  font-size: 2rem !important; 
+  font-weight: 700;
+  margin-bottom: 10px;
 }
 
 .text-focus-in {
+  font-size: 1.1rem;
+  font-weight: bold;
   -webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
   animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+  margin-bottom: 10px;
 }
 
 @-webkit-keyframes text-focus-in {
-  0% {
-    -webkit-filter: blur(12px);
-    filter: blur(12px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-filter: blur(0px);
-    filter: blur(0px);
-    opacity: 1;
-  }
+0% {
+  -webkit-filter: blur(12px);
+  filter: blur(12px);
+  opacity: 0;
+}
+100% {
+  -webkit-filter: blur(0px);
+  filter: blur(0px);
+  opacity: 1;
+}
 }
 @keyframes text-focus-in {
-  0% {
-    -webkit-filter: blur(12px);
-    filter: blur(12px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-filter: blur(0px);
-    filter: blur(0px);
-    opacity: 1;
-  }
+0% {
+  -webkit-filter: blur(12px);
+  filter: blur(12px);
+  opacity: 0;
+}
+100% {
+  -webkit-filter: blur(0px);
+  filter: blur(0px);
+  opacity: 1;
+}
 }
