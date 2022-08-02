@@ -1,7 +1,19 @@
-<mat-toolbar-row fxFlex fxLayout="row" fxLayoutAlign="space-between center" class="toolbar--container__wrapper">
+<div fxFlex fxLayout="row" fxLayoutAlign="space-between center" class="toolbar--container__wrapper">
   <div class="toolbar--container__pagination" fxFlex fxLayout="row">
-    <button class="pagination--button" mat-button mat-button-raised routerLink="/"><span>Dashboard</span></button>
-    <button class="pagination--button" mat-button mat-button-raise routerLink="dojo"><span>The Dojo</span></button>
+    <button class="pagination--button" mat-flat-button routerLink="/" color="accent">
+      <span class="color-alternate">Dashboard</span>
+    </button>
+    <button class="pagination--button" mat-flat-button routerLink="dojo" color="accent">
+      <span class="color-alternate">The Dojo</span>
+    </button>
   </div>
-  <div class="toolbar--container__logo"><img src="../../assets/Logo-wht-txt.png" alt="loldojo-logo"></div>
-</mat-toolbar-row>
+
+  <div fxLayout="row" fxLayoutGap="10px">
+    <div class="toolbar--container__logo"><img src="../../assets/Logo-wht-txt.png" alt="loldojo-logo"></div>
+    <button color="primary" mat-raised-button mat-icon-button (click)="toggleTheme()">
+      <mat-icon>
+        <span class="color-alternate">brush</span>
+      </mat-icon>
+    </button>
+  </div>
+</div>

@@ -1,7 +1,16 @@
 <div class="sidenav--content__container" fxFlex fxLayout="column">
   <img routerLink="/" draggable="false" class="sidenav--content__logo" src="../../assets/Logo--Head.png" alt="loldojo">
   <div class="sidenav--content__navigation" fxFlex fxLayout="column">
-    <mat-icon class="sidenav--router__icon" draggable="false">dashboard</mat-icon>
-    <mat-icon class="sidenav--router__icon" draggable="false" routerLink="dojo">gamepad</mat-icon>
+    <button mat-button mat-icon-button routerLink="/">
+      <mat-icon draggable="false">
+        <span class="color-alternate">dashboard</span>
+      </mat-icon>
+    </button>
+
+    <button mat-button mat-icon-button routerLink="dojo">
+      <mat-icon class="sidenav--router__icon" draggable="false" routerLinkActive="accent">
+        <span class="color-alternate">gamepad</span>
+      </mat-icon>
+    </button>
   </div>
 </div>

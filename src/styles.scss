@@ -1,9 +1,24 @@
 @use "@angular/material" as mat;
+@import "/src/styles/light-theme";
+@import "/src/styles/dark-theme";
 @import '~@angular/material/theming';
 
 body {
   height: 100vh;
   margin: 0;
+
+  //Light theme background color
+  background: mat.get-color-from-palette($my-app-light-background, 100) !important;
+}
+
+* {
+  //Light theme default text color
+  color: mat.get-color-from-palette($my-app-light-foreground, 900) !important;
+}
+
+.color-alternate {
+  //Light theme alternate text color - for darker backgrounds
+  color: mat.get-color-from-palette($my-app-light-foreground, 100) !important;
 }
 
 mat-icon {
@@ -18,23 +33,42 @@ img {
   user-select: none;
 }
 
-$my-primary: mat.define-palette(mat.$blue-gray-palette, 800);
-$my-accent: mat.define-palette(mat.$indigo-palette, A200, A100, A400);
-$my-warn: mat.define-palette(mat.$red-palette);
-
-$my-theme: mat.define-light-theme((
-  color: (
-    primary: $my-primary,
-    accent: $my-accent,
-    warn: $my-warn
-  )
-));
-
 $typography-configuration: mat.define-typography-config(
   $font-family: '"Exo", sans-serif'
 );
 
-@include mat.all-component-themes($my-theme);
-@include mat.core-theme($my-theme);
-@include mat.button-theme($my-theme);
 @include mat.core($typography-configuration);
+
+.dark-theme {
+  background: mat.get-color-from-palette($my-app-dark-background, 900) !important;
+  * {
+    color: mat.get-color-from-palette($my-app-light-foreground, 100) !important;
+  }
+  @include mat.all-component-colors($my-app-dark-theme);
+}
+
+@include mat.all-component-themes($my-app-light-theme);
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 8px 0;
+}
+
+p {
+  margin: 0;
+}
+
+a,
+a:visited,
+a:hover {
+  color: #1976d2;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #125699;
+}

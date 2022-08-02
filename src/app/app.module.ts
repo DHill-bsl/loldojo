@@ -23,15 +23,16 @@ import { BattleTableComponent } from './battle-table/battle-table.component';
 import { DojoComponent } from './dojo/dojo.component';
 import { MatStepperModule } from '@angular/material/stepper';
 import { DojoWizardComponent } from './dojo/dojo-wizard/dojo-wizard.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
-import { MatRadioButton, MatRadioModule } from '@angular/material/radio';
+import { MatRadioModule } from '@angular/material/radio';
 import { DojoBattleComponent } from './dojo/dojo-battle/dojo-battle.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { TemplateComponent } from './template/template.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
+import { StyleService } from "./services/style.service";
 
 const AngularMaterialModules = [
   MatButtonModule,
@@ -73,7 +74,8 @@ const AngularMaterialModules = [
     provideFirestore(() => getFirestore())
   ],
   providers: [
-    AccountsFirestore
+    AccountsFirestore,
+    StyleService
   ],
   bootstrap: [AppComponent]
 })

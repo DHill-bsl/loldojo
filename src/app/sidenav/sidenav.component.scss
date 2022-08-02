@@ -39,13 +39,10 @@
   width: 35px;
   height: auto;
   margin-bottom: 50px;
+  cursor: pointer;
 }
 
 .sidenav--content__navigation {
   gap: 30px;
   margin: 0 auto;
-}
-
-.sidenav--router__icon {
-  cursor: pointer;
 }

@@ -28,7 +28,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/styles/light-theme.scss",
+              "src/styles/dark-theme.scss"
             ],
             "scripts": []
           },
@@ -96,7 +98,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/styles/light-theme.scss",
+              "src/styles/dark-theme.scss"
             ],
             "scripts": []
           }
