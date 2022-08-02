@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DojoSetup } from './dojo-wizard/dojo-setup';
+import { DojoSetup } from "./dojo-setup";
 
 @Component({
   selector: 'app-dojo',
@@ -7,7 +7,7 @@ import { DojoSetup } from './dojo-wizard/dojo-setup';
   styleUrls: ['./dojo.component.scss']
 })
 export class DojoComponent implements OnInit {
-  public data?: DojoSetup = undefined;
+  public data?: DojoSetup = { lane: "Mid", championFormat: "Marksman", opponent1: 'Irea', opponent2: 'Wachati' };
   constructor() { }
 
   public ngOnInit(): void {

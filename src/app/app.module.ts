@@ -33,6 +33,10 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { TemplateComponent } from './template/template.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { StyleService } from "./services/style.service";
+import { DojoVictoryComponent } from './dojo/dojo-victory/dojo-victory.component';
+import { ChampionService } from "./services/champion.service";
+import { HttpClientModule } from "@angular/common/http";
+import { LolPatchService } from "./services/lol-patch.service";
 
 const AngularMaterialModules = [
   MatButtonModule,
@@ -60,7 +64,8 @@ const AngularMaterialModules = [
     DojoBattleComponent,
     SidenavComponent,
     TemplateComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    DojoVictoryComponent
   ],
   imports: [
     BrowserModule,
@@ -68,6 +73,7 @@ const AngularMaterialModules = [
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FlexLayoutModule,
+    HttpClientModule,
     ...AngularMaterialModules,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideDatabase(() => getDatabase()),
@@ -75,7 +81,9 @@ const AngularMaterialModules = [
   ],
   providers: [
     AccountsFirestore,
-    StyleService
+    StyleService,
+    ChampionService,
+    LolPatchService
   ],
   bootstrap: [AppComponent]
 })

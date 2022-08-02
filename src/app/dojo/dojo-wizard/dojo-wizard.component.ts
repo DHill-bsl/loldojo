@@ -2,7 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AccountsFirestore } from '../../services/accounts.firestore';
 import { Account } from '../../models/account';
-import { DojoSetup } from './dojo-setup';
+import { DojoSetup } from "../dojo-setup";
 
 @Component({
   selector: 'app-dojo-wizard',
