@@ -31,6 +31,7 @@ import { DojoBattleComponent } from './dojo/dojo-battle/dojo-battle.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { TemplateComponent } from './template/template.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
 
 const AngularMaterialModules = [
   MatButtonModule,
@@ -57,7 +58,8 @@ const AngularMaterialModules = [
     DojoWizardComponent,
     DojoBattleComponent,
     SidenavComponent,
-    TemplateComponent
+    TemplateComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,

@@ -1,44 +1,51 @@
 :host {
-    display: block;
-    background: #191b2a;
-    border-radius: 15px;
-}
-
-.sidenav--content__container {
-    padding: 20px;
-}
-
-.sidenav--content__logo {
-    cursor: pointer;
-    max-width: 100%;
-    max-height: 100%;
-    width: 35px;
-    height: auto;
+  display: block;
+  background: #191b2a;
+  border-radius: 0px 25px 0px 0px;
 }
 
 .sidenav--content__logo:hover {
-    -webkit-animation: rotate-center 0.6s cubic-bezier(0.645, 0.045, 0.355, 1.000) 100ms both;
-    animation: rotate-center 0.6s cubic-bezier(0.645, 0.045, 0.355, 1.000) 100ms both;
+  -webkit-animation: rotate-center 0.6s cubic-bezier(0.645, 0.045, 0.355, 1.000) 100ms both;
+  animation: rotate-center 0.6s cubic-bezier(0.645, 0.045, 0.355, 1.000) 100ms both;
 }
 
- @-webkit-keyframes rotate-center {
-    0% {
-      -webkit-transform: rotate(0);
-              transform: rotate(0);
-    }
-    100% {
-      -webkit-transform: rotate(360deg);
-              transform: rotate(360deg);
-    }
+@-webkit-keyframes rotate-center {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
   }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
   @keyframes rotate-center {
-    0% {
-      -webkit-transform: rotate(0);
-              transform: rotate(0);
-    }
-    100% {
-      -webkit-transform: rotate(360deg);
-              transform: rotate(360deg);
-    }
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
   }
-  
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.sidenav--content__logo {
+  padding: 20px;
+}
+
+.sidenav--content__logo {
+  max-height: 100%;
+  width: 35px;
+  height: auto;
+  margin-bottom: 50px;
+}
+
+.sidenav--content__navigation {
+  gap: 30px;
+  margin: 0 auto;
+}
+
+.sidenav--router__icon {
+  cursor: pointer;
+}
