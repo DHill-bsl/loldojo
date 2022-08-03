@@ -16,7 +16,9 @@ export class DojoBattleChampionComponent implements OnChanges {
   public ngOnChanges(changes: SimpleChanges): void {
     if (changes['champion']) {
       const champion = changes['champion'].currentValue as Champion;
-      this.backgroundImage = `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champion.name}_0.jpg`;
+      const name = champion.image.full.slice(0, -4);
+      this.backgroundImage = `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${name}_0.jpg`;
+      console.log(this.backgroundImage);
     }
   }
 }
