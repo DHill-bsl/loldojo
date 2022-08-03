@@ -16,7 +16,7 @@
         </div>
       </app-dojo-battle-champion>
 
-      <app-dojo-battle-champion [hidden]="!is2v2" fxFlex borderRadius="0px 0 0 20px" [champion]="battleForm.get('team1')?.get('player2')?.get('champion')?.value">
+      <app-dojo-battle-champion *ngIf="is2v2" fxFlex borderRadius="0px 0 0 20px" [champion]="battleForm.get('team1')?.get('player2')?.get('champion')?.value">
         <div class="text-container slide-in-left" style="left: 0;" fxLayout="column">
           <span class="opponent text-outline">{{ battleForm.get('team1')?.get('player2')?.get('name')?.value }}</span>
           <div>
@@ -40,7 +40,7 @@
         </div>
       </app-dojo-battle-champion>
 
-      <app-dojo-battle-champion [hidden]="!is2v2" fxFlex borderRadius="0 0 20px 0" [champion]="battleForm.get('team2')?.get('player2')?.get('champion')?.value">
+      <app-dojo-battle-champion *ngIf="is2v2" fxFlex borderRadius="0 0 20px 0" [champion]="battleForm.get('team2')?.get('player2')?.get('champion')?.value">
         <div class="text-container slide-in-right" style="text-align: right" fxLayout="column">
           <span class="opponent text-outline">{{ battleForm.get('team2')?.get('player2')?.get('name')?.value }}</span>
           <div class="text-outline">
