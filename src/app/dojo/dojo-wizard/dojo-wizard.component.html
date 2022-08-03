@@ -1,27 +1,70 @@
 <form *ngIf="form" [formGroup]="form">
-  <mat-stepper orientation="vertical" style="background: transparent">
+  <mat-stepper #stepper orientation="vertical" style="background: transparent">
     <mat-step fxFlex>
-      <ng-template matStepLabel>Who are you?</ng-template>
-
-      <mat-form-field>
-        <mat-select disableOptionCentering formControlName="opponent1" (valueChange)="onOpponent1Change($event)">
-          <mat-option *ngFor="let account of accounts" [value]="account.name">
-            {{ account.name }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+      <ng-template matStepLabel>Party size</ng-template>
+      <div fxFlex>
+        <div fxFlex="50" style="text-align: center">
+          <button
+            mat-button
+            mat-raised-button
+            color="primary"
+            (click)="setMode('1v1'); stepper.next()">
+            <span class="color-alternate">1 vs 1</span>
+          </button>
+        </div>
+        <mat-divider vertical></mat-divider>
+        <div fxFlex="50" style="text-align: center">
+          <button
+            mat-button
+            mat-raised-button
+            color="primary"
+            (click)="setMode('2v2'); stepper.next()">
+            <span class="color-alternate">2 vs 2</span>
+          </button>
+        </div>
+      </div>
     </mat-step>
-    <mat-step>
-      <ng-template matStepLabel>Choose your adversary</ng-template>
-      <mat-form-field>
-        <mat-select disableOptionCentering formControlName="opponent2">
-          <div *ngFor="let account of accounts">
-            <mat-option *ngIf="account.name !== form.get('opponent1')?.value" [value]="account.name">
+
+    <mat-step fxFlex>
+      <ng-template matStepLabel>Players</ng-template>
+
+      <div fxLayout="column">
+        <mat-form-field>
+          <mat-label>Player 1</mat-label>
+          <mat-select disableOptionCentering formControlName="opponent1" (valueChange)="onOpponent1Change($event)">
+            <mat-option *ngFor="let account of accounts" [value]="account.name">
               {{ account.name }}
             </mat-option>
-          </div>
-        </mat-select>
-      </mat-form-field>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Player 2</mat-label>
+          <mat-select disableOptionCentering formControlName="opponent2" (valueChange)="onOpponent1Change($event)">
+            <mat-option *ngFor="let account of accounts" [value]="account.name">
+              {{ account.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field *ngIf="mode === '2v2'">
+          <mat-label>Player 3</mat-label>
+          <mat-select disableOptionCentering formControlName="opponent3" (valueChange)="onOpponent1Change($event)">
+            <mat-option *ngFor="let account of accounts" [value]="account.name">
+              {{ account.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field *ngIf="mode === '2v2'">
+          <mat-label>Player 4</mat-label>
+          <mat-select disableOptionCentering formControlName="opponent4" (valueChange)="onOpponent1Change($event)">
+            <mat-option *ngFor="let account of accounts" [value]="account.name">
+              {{ account.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
     </mat-step>
     <mat-step>
       <ng-template matStepLabel>Settings</ng-template>

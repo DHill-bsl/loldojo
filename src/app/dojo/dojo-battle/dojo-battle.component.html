@@ -1,26 +1,52 @@
 <form *ngIf="battleForm && setupData" [formGroup]="battleForm" fxFlex fxLayout="column">
+  <div fxLayout="row">
+    <h1 fxFlex="50" style="text-align: center">Team 1</h1>
+    <h1 fxFlex="50" style="text-align: center">Team 2</h1>
+  </div>
   <div fxFlex fxLayout="row">
-    <div fxFlex="50">
-      <app-dojo-battle-champion borderRadius="20px 0 0 20px" [champion]="battleForm.get('opponent1Champion')?.value">
+    <div fxFlex="50" fxLayout="column">
+      <app-dojo-battle-champion fxFlex [borderRadius]="is2v2 ? '20px 0 0 0' : '20px 0 0 20px'" [champion]="battleForm.get('team1')?.get('player1')?.get('champion')?.value">
         <div class="text-container slide-in-left" style="left: 0;" fxLayout="column">
-          <span class="opponent text-outline">{{ setupData.opponent1 }}</span>
+          <span class="opponent text-outline">{{ battleForm.get('team1')?.get('player1')?.get('name')?.value }}</span>
           <div>
             <span class="text-outline">Playing as&nbsp;</span>
-            <span class="text-champion text-outline">{{ battleForm.get('opponent1Champion')?.value.name }}, {{ battleForm.get('opponent1Champion')?.value.title }}</span>
-            <mat-icon (click)="generateChampion(battleForm.get('opponent1Champion')!)" matTooltip="This player doesn't have this champion? Reload their champion" class="text-outline refresh-btn">refresh</mat-icon>
+            <span class="text-champion text-outline">{{ battleForm.get('team1')?.get('player1')?.get('champion')?.value.name }}, {{ battleForm.get('team1')?.get('player1')?.get('champion')?.value.title }}</span>
+            <mat-icon (click)="refreshChampion(battleForm.get('team1')?.get('player1')?.get('champion'))" matTooltip="This player doesn't have this champion? Reload their champion" class="text-outline refresh-btn">refresh</mat-icon>
+          </div>
+        </div>
+      </app-dojo-battle-champion>
+
+      <app-dojo-battle-champion [hidden]="!is2v2" fxFlex borderRadius="0px 0 0 20px" [champion]="battleForm.get('team1')?.get('player2')?.get('champion')?.value">
+        <div class="text-container slide-in-left" style="left: 0;" fxLayout="column">
+          <span class="opponent text-outline">{{ battleForm.get('team1')?.get('player2')?.get('name')?.value }}</span>
+          <div>
+            <span class="text-outline">Playing as&nbsp;</span>
+            <span class="text-champion text-outline">{{ battleForm.get('team1')?.get('player2')?.get('champion')?.value.name }}, {{ battleForm.get('team1')?.get('player2')?.get('champion')?.value.title }}</span>
+            <mat-icon (click)="refreshChampion(battleForm.get('team1')?.get('player2')?.get('champion'))" matTooltip="This player doesn't have this champion? Reload their champion" class="text-outline refresh-btn">refresh</mat-icon>
           </div>
         </div>
       </app-dojo-battle-champion>
     </div>
 
-    <div fxFlex="50">
-      <app-dojo-battle-champion borderRadius="0 20px 20px 0" [champion]="battleForm.get('opponent2Champion')?.value">
+    <div fxFlex="50" fxLayout="column">
+      <app-dojo-battle-champion fxFlex [borderRadius]="is2v2 ? '0 20px 0 0' : '0 20px 20px 0'" [champion]="battleForm.get('team2')?.get('player1')?.get('champion')?.value">
         <div class="text-container slide-in-right" style="text-align: right" fxLayout="column">
-          <span class="opponent text-outline">{{ setupData.opponent2 }}</span>
+          <span class="opponent text-outline">{{ battleForm.get('team2')?.get('player1')?.get('name')?.value }}</span>
           <div class="text-outline">
             <span class="text-outline">Playing as&nbsp;</span>
-            <span class="text-champion text-outline">{{ battleForm.get('opponent2Champion')?.value.name }}, {{ battleForm.get('opponent2Champion')?.value.title }}</span>
-            <mat-icon (click)="generateChampion(battleForm.get('opponent2Champion')!)" matTooltip="This player doesn't have this champion? Reload their champion" class="text-outline refresh-btn">refresh</mat-icon>
+            <span class="text-champion text-outline">{{ battleForm.get('team2')?.get('player1')?.get('champion')?.value.name }}, {{ battleForm.get('team2')?.get('player1')?.get('champion')?.value.title }}</span>
+            <mat-icon (click)="refreshChampion(battleForm.get('team2')?.get('player1')?.get('champion'))" matTooltip="This player doesn't have this champion? Reload their champion" class="text-outline refresh-btn">refresh</mat-icon>
+          </div>
+        </div>
+      </app-dojo-battle-champion>
+
+      <app-dojo-battle-champion [hidden]="!is2v2" fxFlex borderRadius="0 0 20px 0" [champion]="battleForm.get('team2')?.get('player2')?.get('champion')?.value">
+        <div class="text-container slide-in-right" style="text-align: right" fxLayout="column">
+          <span class="opponent text-outline">{{ battleForm.get('team2')?.get('player2')?.get('name')?.value }}</span>
+          <div class="text-outline">
+            <span class="text-outline">Playing as&nbsp;</span>
+            <span class="text-champion text-outline">{{ battleForm.get('team2')?.get('player2')?.get('champion')?.value.name }}, {{ battleForm.get('team2')?.get('player2')?.get('champion')?.value.title }}</span>
+            <mat-icon (click)="refreshChampion(battleForm.get('team2')?.get('player2')?.get('champion'))" matTooltip="This player doesn't have this champion? Reload their champion" class="text-outline refresh-btn">refresh</mat-icon>
           </div>
         </div>
       </app-dojo-battle-champion>

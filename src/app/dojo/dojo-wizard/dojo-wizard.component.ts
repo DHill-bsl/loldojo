@@ -10,6 +10,7 @@ import { DojoSetup } from "../dojo-setup";
   styleUrls: ['./dojo-wizard.component.scss']
 })
 export class DojoWizardComponent implements OnInit {
+  public mode: '1v1' | '2v2' = '1v1';
   public accounts?: Account[] = undefined;
   public form?: FormGroup;
   @Output() public complete = new EventEmitter<any>();
@@ -25,6 +26,8 @@ export class DojoWizardComponent implements OnInit {
     this.form = this.formBuilder.group({
       opponent1: [opponent1 ? opponent1 : '', Validators.required],
       opponent2: ['', Validators.required],
+      opponent3: [''],
+      opponent4: [''],
       lane: 'Mid',
       championFormat: 'All',
     });
@@ -36,6 +39,21 @@ export class DojoWizardComponent implements OnInit {
 
   public onOpponent1Change(event: string) {
     localStorage.setItem('opponent1', event);
+  }
+
+  public setMode(mode: '1v1' | '2v2') {
+    this.mode = mode;
+
+    if (this.mode === '1v1') {
+      this.form?.get('opponent3')?.setValue(undefined);
+      this.form?.get('opponent3')?.removeValidators(Validators.required);
+      this.form?.get('opponent4')?.setValue(undefined);
+      this.form?.get('opponent4')?.removeValidators(Validators.required);
+    }
+    if (this.mode === '2v2') {
+      this.form?.get('opponent3')?.setValidators(Validators.required);
+      this.form?.get('opponent4')?.setValidators(Validators.required);
+    }
   }
 
   public onComplete() {
