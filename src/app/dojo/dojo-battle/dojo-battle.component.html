@@ -1,56 +1,40 @@
-<form *ngIf="battleForm && data" [formGroup]="battleForm" fxFlexFill fxLayout="column">
-  <div fxFlex style="overflow-x: hidden" fxLayout="column" fxLayoutAlign="center stretch">
-    <div fxLayout="row" fxFlex>
-      <div
-        fxFlex="50"
-        style="text-align: end; position: relative"
-        fxLayoutAlign="center center">
-        <div fxFlex class="champion-img-container">
-          <img *ngIf="opponent1BackgroundImage" [src]="opponent1BackgroundImage" class="champion-img">
+<form *ngIf="battleForm && setupData" [formGroup]="battleForm" fxFlex fxLayout="column">
+  <div fxFlex fxLayout="row">
+    <div fxFlex="50">
+      <app-dojo-battle-champion borderRadius="20px 0 0 20px" [champion]="battleForm.get('opponent1Champion')?.value">
+        <div class="text-container slide-in-left" style="left: 0;" fxLayout="column">
+          <span class="opponent text-outline">{{ setupData.opponent1 }}</span>
+          <div>
+            <span class="text-outline">Playing as&nbsp;</span>
+            <span class="text-champion text-outline">{{ battleForm.get('opponent1Champion')?.value.name }}, {{ battleForm.get('opponent1Champion')?.value.title }}</span>
+            <mat-icon (click)="generateChampion(battleForm.get('opponent1Champion')!)" matTooltip="This player doesn't have this champion? Reload their champion" class="text-outline refresh-btn">refresh</mat-icon>
+          </div>
         </div>
-        <div class="opponent slide-in-left">{{ data.opponent1 }}</div>
-      </div>
+      </app-dojo-battle-champion>
+    </div>
 
-      <mat-divider vertical></mat-divider>
-
-      <div fxFlex="50" fxLayoutAlign="center center" style="position: relative">
-        <div class="champion-img-container">
-          <img *ngIf="opponent2BackgroundImage" [src]="opponent2BackgroundImage" class="champion-img">
+    <div fxFlex="50">
+      <app-dojo-battle-champion borderRadius="0 20px 20px 0" [champion]="battleForm.get('opponent2Champion')?.value">
+        <div class="text-container slide-in-right" style="text-align: right" fxLayout="column">
+          <span class="opponent text-outline">{{ setupData.opponent2 }}</span>
+          <div class="text-outline">
+            <span class="text-outline">Playing as&nbsp;</span>
+            <span class="text-champion text-outline">{{ battleForm.get('opponent2Champion')?.value.name }}, {{ battleForm.get('opponent2Champion')?.value.title }}</span>
+            <mat-icon (click)="generateChampion(battleForm.get('opponent2Champion')!)" matTooltip="This player doesn't have this champion? Reload their champion" class="text-outline refresh-btn">refresh</mat-icon>
+          </div>
         </div>
-        <div class="opponent slide-in-right">{{ data.opponent2 }}</div>
-      </div>
+      </app-dojo-battle-champion>
     </div>
   </div>
 
-  <mat-divider></mat-divider>
+  <mat-divider style="margin: 10px 0;"></mat-divider>
 
   <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
-    <div class="lane">In the {{ data.lane }} lane</div>
-    <div class="champion-format">With {{ data.championFormat }} champions</div>
-
-    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="20px">
-      <mat-form-field>
-        <mat-label>{{ data.opponent1 }}'s champion</mat-label>
-        <mat-select formControlName="opponent1Champion" (valueChange)="onValueChange($event, 1)">
-          <mat-option *ngFor="let champion of champions?.data | keyvalue" [value]="champion.value">
-            {{ champion.value.name }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>{{ data.opponent2 }}'s champion</mat-label>
-        <mat-select formControlName="opponent2Champion" (valueChange)="onValueChange($event, 2)">
-          <mat-option *ngFor="let champion of champions?.data | keyvalue" [value]="champion.value">
-            {{ champion.value.name }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
+    <h1 class="lane">In the {{ setupData.lane }} lane</h1>
 
     <div fxLayout="column">
-      <p>Choose your champions and hit the start button once summoners rift has loaded</p>
-      <button [disabled]="data && battleForm && !battleForm.valid" mat-raised-button color="primary">Start</button>
+      <p>Hit the start button once summoners rift has loaded</p>
+      <button [disabled]="setupData && battleForm && !battleForm.valid" mat-raised-button color="primary">Start</button>
     </div>
   </div>
 </form>

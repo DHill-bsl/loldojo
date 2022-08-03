@@ -37,6 +37,8 @@ import { DojoVictoryComponent } from './dojo/dojo-victory/dojo-victory.component
 import { ChampionService } from "./services/champion.service";
 import { HttpClientModule } from "@angular/common/http";
 import { LolPatchService } from "./services/lol-patch.service";
+import { DojoBattleChampionComponent } from './dojo/dojo-battle/dojo-battle-champion/dojo-battle-champion.component';
+import { MatTooltipModule } from "@angular/material/tooltip";
 
 const AngularMaterialModules = [
   MatButtonModule,
@@ -48,7 +50,8 @@ const AngularMaterialModules = [
   MatFormFieldModule,
   MatSelectModule,
   MatRadioModule,
-  MatSidenavModule
+  MatSidenavModule,
+  MatTooltipModule
 ];
 
 @NgModule({
@@ -65,7 +68,8 @@ const AngularMaterialModules = [
     SidenavComponent,
     TemplateComponent,
     ToolbarComponent,
-    DojoVictoryComponent
+    DojoVictoryComponent,
+    DojoBattleChampionComponent
   ],
   imports: [
     BrowserModule,

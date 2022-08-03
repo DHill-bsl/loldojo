@@ -7,7 +7,7 @@ import { DojoSetup } from "./dojo-setup";
   styleUrls: ['./dojo.component.scss']
 })
 export class DojoComponent implements OnInit {
-  public data?: DojoSetup = { lane: "Mid", championFormat: "Marksman", opponent1: 'Irea', opponent2: 'Wachati' };
+  public data?: DojoSetup = undefined;
   constructor() { }
 
   public ngOnInit(): void {

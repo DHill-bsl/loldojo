@@ -11,4 +11,5 @@ export interface Champion {
   key: string;
   name: string;
   title: string;
+  tags: string[];
 }

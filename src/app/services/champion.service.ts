@@ -8,6 +8,6 @@ export class ChampionService {
   constructor(private http: HttpClient) { }
 
   public getAll(patchNumber: string): Observable<ChampionMeta> {
-    return this.http.get<ChampionMeta>(`http://ddragon.leagueoflegends.com/cdn/${patchNumber}/data/en_US/champion.json`);
+    return this.http.get<ChampionMeta>(`https://ddragon.leagueoflegends.com/cdn/${patchNumber}/data/en_US/champion.json`);
   }
 }
