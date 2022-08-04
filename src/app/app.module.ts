@@ -44,7 +44,9 @@ import { QuoteComponent } from './quote/quote.component';
 import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatInputModule } from "@angular/material/input";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
-import { BattleService } from "./services/battle.service";
+import { MatchHistoryComponent } from './match-history/match-history.component';
+import { MatTableModule } from "@angular/material/table";
+import { BattleFirestore } from "./services/battle.firestore";
 
 const AngularMaterialModules = [
   MatButtonModule,
@@ -61,7 +63,8 @@ const AngularMaterialModules = [
   MatButtonToggleModule,
   MatCheckboxModule,
   MatInputModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatTableModule
 ];
 
 @NgModule({
@@ -80,7 +83,8 @@ const AngularMaterialModules = [
     ToolbarComponent,
     DojoVictoryComponent,
     DojoBattleChampionComponent,
-    QuoteComponent
+    QuoteComponent,
+    MatchHistoryComponent
   ],
   imports: [
     BrowserModule,
@@ -99,7 +103,7 @@ const AngularMaterialModules = [
     StyleService,
     ChampionService,
     LolPatchService,
-    BattleService
+    BattleFirestore
   ],
   bootstrap: [AppComponent]
 })

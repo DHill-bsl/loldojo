@@ -7,8 +7,8 @@ import { AbstractControl, FormBuilder, FormGroup } from "@angular/forms";
 import { Champion, ChampionMeta } from "../../models/lol/champion";
 import { TimerService } from "../../services/timer.service";
 import { Router } from "@angular/router";
-import {BattleSummary} from "../battle-summary";
-import {BattleService} from "../../services/battle.service";
+import { BattleSummary } from "../battle-summary";
+import { BattleFirestore } from "../../services/battle.firestore";
 
 @Component({
   selector: 'app-dojo-battle',
@@ -38,7 +38,7 @@ export class DojoBattleComponent implements OnInit {
     private lolPatchService: LolPatchService,
     private formBuilder: FormBuilder,
     private timerService: TimerService,
-    private battleService: BattleService,
+    private battleFirestore: BattleFirestore,
     private router: Router) { }
 
   public ngOnInit() {
@@ -165,7 +165,7 @@ export class DojoBattleComponent implements OnInit {
   }
 
   public async finish() {
-    await this.battleService.saveBattle(this.getSummary());
+    await this.battleFirestore.saveBattle(this.getSummary());
     this.router.navigate(['/']);
   }
 

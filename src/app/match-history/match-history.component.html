@@ -1,0 +1,67 @@
+<div fxFlex class="card card-radius">
+  <mat-table fxFlex [dataSource]="dataSource" class="card-radius">
+    <ng-container matColumnDef="team1">
+      <th mat-header-cell *matHeaderCellDef>Team 1</th>
+      <td mat-cell *matCellDef="let element">
+        <div fxLayout="column">
+          <div fxLayout="row" *ngFor="let t of element.team1">
+            {{ t.name }} <small>&nbsp;- {{ t.champion }}</small>
+          </div>
+        </div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="team2">
+      <th mat-header-cell *matHeaderCellDef>Team 2</th>
+      <td mat-cell *matCellDef="let element">
+        <div fxLayout="column">
+          <div fxLayout="row" *ngFor="let t of element.team2">
+            {{ t.name }} <small>&nbsp;- {{ t.champion }}</small>
+          </div>
+        </div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="winners">
+      <th mat-header-cell *matHeaderCellDef>Winner</th>
+      <td mat-cell *matCellDef="let element">
+        <div fxLayout="column">
+          <div fxLayout="row" *ngFor="let t of element.winners">
+            {{ t.name }}
+          </div>
+        </div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="kills">
+      <th mat-header-cell *matHeaderCellDef>Kills</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.winnerKills }} - {{ element.loserKills }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="timeElapsed">
+      <th mat-header-cell *matHeaderCellDef>
+        <div fxLayout="column">
+          <span>Time played</span>
+          <small>(milliseconds)</small>
+        </div>
+      </th>
+      <td mat-cell *matCellDef="let element">{{element.timeElapsed}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="lane">
+      <th mat-header-cell *matHeaderCellDef>Lane</th>
+      <td mat-cell *matCellDef="let element">{{element.lane}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="championFormat">
+      <th mat-header-cell *matHeaderCellDef>Champion format</th>
+      <td mat-cell *matCellDef="let element">{{element.championFormat}}</td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </mat-table>
+</div>
