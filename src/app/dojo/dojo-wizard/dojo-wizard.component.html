@@ -1,34 +1,29 @@
-<form *ngIf="form" [formGroup]="form">
-  <mat-stepper #stepper orientation="vertical" style="background: transparent">
-    <mat-step fxFlex>
-      <ng-template matStepLabel>Party size</ng-template>
-      <div fxFlex>
-        <div fxFlex="50" style="text-align: center">
-          <button
-            mat-button
-            mat-raised-button
-            color="primary"
-            (click)="setMode('1v1'); stepper.next()">
-            <span class="color-alternate">1 vs 1</span>
-          </button>
-        </div>
-        <mat-divider vertical></mat-divider>
-        <div fxFlex="50" style="text-align: center">
-          <button
-            mat-button
-            mat-raised-button
-            color="primary"
-            (click)="setMode('2v2'); stepper.next()">
-            <span class="color-alternate">2 vs 2</span>
-          </button>
-        </div>
-      </div>
-    </mat-step>
+<form *ngIf="form" [formGroup]="form" class="dark-theme" style="border-radius: 20px;" fxFlex>
+  <div fxFlex class="card card-radius" fxLayout="column" fxLayoutAlign="start center">
+    <app-quote></app-quote>
 
-    <mat-step fxFlex>
-      <ng-template matStepLabel>Players</ng-template>
+    <mat-divider style="margin: 20px; width: 70%;"></mat-divider>
 
-      <div fxLayout="column">
+    <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
+      <button
+        mat-button
+        mat-raised-button
+        color="primary"
+        (click)="setMode('1v1');">
+        <span class="color-alternate">1 vs 1</span>
+      </button>
+
+      <button
+        mat-button
+        mat-raised-button
+        color="primary"
+        (click)="setMode('2v2');">
+        <span class="color-alternate">2 vs 2</span>
+      </button>
+    </div>
+
+    <div fxFlex fxLayout="column" fxLayoutGap="20px" *ngIf="mode !== undefined">
+      <div style="margin: 20px;" fxLayout="row wrap" fxLayoutGap="20px">
         <mat-form-field>
           <mat-label>Player 1</mat-label>
           <mat-select disableOptionCentering formControlName="opponent1" (valueChange)="onOpponent1Change($event)">
@@ -65,9 +60,11 @@
           </mat-select>
         </mat-form-field>
       </div>
-    </mat-step>
-    <mat-step>
-      <ng-template matStepLabel>Settings</ng-template>
+
+      <mat-checkbox *ngIf="mode === '2v2'" formControlName="randomTeams">
+        Randomise teams <small><i>- If unchecked, teams will be p1 and p3 versus p2 and p4</i></small>
+      </mat-checkbox>
+
       <h3>Choose your lane</h3>
       <mat-radio-group fxLayout="column" color="primary" formControlName="lane">
         <mat-radio-button value="Top">Top</mat-radio-button>
@@ -76,7 +73,7 @@
         <mat-radio-button value="Random">The gods shall decide my fate</mat-radio-button>
       </mat-radio-group>
 
-      <h3>Choose your format</h3>
+      <h3>Choose your champion format</h3>
       <mat-radio-group fxLayout="column" color="primary" formControlName="championFormat">
         <mat-radio-button value="Assassin">Assassin</mat-radio-button>
         <mat-radio-button value="Fighter">Fighter</mat-radio-button>
@@ -86,13 +83,16 @@
         <mat-radio-button value="Tank">Tank</mat-radio-button>
         <mat-radio-button value="All">All</mat-radio-button>
       </mat-radio-group>
-    </mat-step>
-    <mat-step>
-      <ng-template matStepLabel>Do battle</ng-template>
-      <button [disabled]="!form.valid" mat-button mat-raised-button color="accent" (click)="onComplete()">
-        <span>Onwards, to glory or ruin</span>
-        <mat-icon>gamepad</mat-icon>
-      </button>
-    </mat-step>
-  </mat-stepper>
+
+      <mat-form-field>
+        <mat-label>Number of kills to win</mat-label>
+        <input type="number" matInput formControlName="killsToWin">
+      </mat-form-field>
+    </div>
+
+    <button *ngIf="mode" [disabled]="!form.valid" mat-button mat-raised-button color="accent" (click)="onComplete()">
+      <span>Onwards, to glory or ruin</span>
+      <mat-icon>gamepad</mat-icon>
+    </button>
+  </div>
 </form>

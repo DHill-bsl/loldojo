@@ -8,7 +8,7 @@ export class AccountsFirestore {
   private readonly docPath = 'accounts';
   private readonly accountsCollectionRef: CollectionReference<DocumentData> = collection(this.db, this.docPath);
 
-  constructor(private  readonly db: Firestore) { }
+  constructor(private readonly db: Firestore) { }
 
   public initAccounts() {
     void setDoc(doc(this.accountsCollectionRef, "Irea"), { name: 'Irea' });

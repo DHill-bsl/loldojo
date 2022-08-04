@@ -10,7 +10,7 @@ import { DojoSetup } from "../dojo-setup";
   styleUrls: ['./dojo-wizard.component.scss']
 })
 export class DojoWizardComponent implements OnInit {
-  public mode: '1v1' | '2v2' = '1v1';
+  public mode: '1v1' | '2v2' | undefined = undefined;
   public accounts?: Account[] = undefined;
   public form?: FormGroup;
   @Output() public complete = new EventEmitter<any>();
@@ -28,8 +28,10 @@ export class DojoWizardComponent implements OnInit {
       opponent2: ['', Validators.required],
       opponent3: [''],
       opponent4: [''],
+      randomTeams: false,
       lane: 'Mid',
       championFormat: 'All',
+      killsToWin: 3
     });
   }
 

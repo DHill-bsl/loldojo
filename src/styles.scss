@@ -33,6 +33,15 @@ img {
   user-select: none;
 }
 
+.card {
+  background: #191b2a !important;
+  padding: 20px;
+}
+
+.card-radius {
+  border-radius: 20px !important;
+}
+
 $typography-configuration: mat.define-typography-config(
   $font-family: '"Exo", sans-serif'
 );

@@ -58,9 +58,42 @@
   <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
     <h1 class="lane">In the {{ setupData.lane }} lane</h1>
 
-    <div fxLayout="column">
+    <div fxLayout="column" *ngIf="!battleStarted && !battleEnded;">
       <p>Hit the start button once summoners rift has loaded</p>
-      <button [disabled]="setupData && battleForm && !battleForm.valid" mat-raised-button color="primary">Start</button>
+      <button
+        (click)="startBattle()"
+        [disabled]="setupData && battleForm && !battleForm.valid"
+        mat-raised-button
+        color="primary">
+        Start
+      </button>
+    </div>
+
+    <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" *ngIf="battleStarted && !battleEnded">
+      <h1>Battle in progress</h1>
+      <mat-progress-spinner diameter="20"></mat-progress-spinner>
+      <p>Hit the end button once {{ setupData.killsToWin }} kills has been reached by either team</p>
+      <button (click)="endBattle()" mat-raised-button color="primary">
+        End battle
+      </button>
+    </div>
+
+    <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" *ngIf="battleEnded">
+      <h1>Battle concluded</h1>
+
+      <form [formGroup]="battleForm">
+        <mat-form-field>
+          <mat-label>Team 1 kills</mat-label>
+          <input matInput type="number" formControlName="team1Score">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>team 2 kills</mat-label>
+          <input matInput type="number" formControlName="team2Score">
+        </mat-form-field>
+      </form>
+
+      <button mat-raised-button (click)="finish()">Finish</button>
     </div>
   </div>
 </form>

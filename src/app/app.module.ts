@@ -39,6 +39,12 @@ import { HttpClientModule } from "@angular/common/http";
 import { LolPatchService } from "./services/lol-patch.service";
 import { DojoBattleChampionComponent } from './dojo/dojo-battle/dojo-battle-champion/dojo-battle-champion.component';
 import { MatTooltipModule } from "@angular/material/tooltip";
+import { MatButtonToggleModule } from "@angular/material/button-toggle";
+import { QuoteComponent } from './quote/quote.component';
+import { MatCheckboxModule } from "@angular/material/checkbox";
+import { MatInputModule } from "@angular/material/input";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { BattleService } from "./services/battle.service";
 
 const AngularMaterialModules = [
   MatButtonModule,
@@ -51,7 +57,11 @@ const AngularMaterialModules = [
   MatSelectModule,
   MatRadioModule,
   MatSidenavModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatButtonToggleModule,
+  MatCheckboxModule,
+  MatInputModule,
+  MatProgressSpinnerModule
 ];
 
 @NgModule({
@@ -69,7 +79,8 @@ const AngularMaterialModules = [
     TemplateComponent,
     ToolbarComponent,
     DojoVictoryComponent,
-    DojoBattleChampionComponent
+    DojoBattleChampionComponent,
+    QuoteComponent
   ],
   imports: [
     BrowserModule,
@@ -87,7 +98,8 @@ const AngularMaterialModules = [
     AccountsFirestore,
     StyleService,
     ChampionService,
-    LolPatchService
+    LolPatchService,
+    BattleService
   ],
   bootstrap: [AppComponent]
 })
