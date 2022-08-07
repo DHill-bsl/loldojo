@@ -1,0 +1,38 @@
+<ng-container *ngIf="slot && slot.playerName; else emptySlot">
+  <ng-container [ngTemplateOutlet]="main"></ng-container>
+</ng-container>
+
+<ng-template #main>
+  <div
+    style.background-image="url({{championImage}})"
+    *ngIf="slot"
+    fxFlex
+    class="container occupied-slot"
+    fxLayout="column"
+    [fxLayoutAlign]="slotNumber % 2 === 0 ? 'space-between end' : 'space-between start'">
+    <div fxLayout="row" fxLayoutAlign="start center">
+      {{ slot.playerName }}
+      <mat-icon class="leave" *ngIf="isMyPlayer" matTooltip="Leave slot" (click)="onLeaveSlot()">close</mat-icon>
+    </div>
+
+    <mat-form-field *ngIf="isMyPlayer">
+      <mat-label>Choose your champion</mat-label>
+      <mat-select [(ngModel)]="selectedChampion" (valueChange)="selectChampion($event)">
+        <mat-option [value]="champion.name" *ngFor="let champion of getChampionList()">
+          {{ champion.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</ng-template>
+
+<ng-template #emptySlot>
+  <div
+    fxFlex
+    class="container empty-slot"
+    fxLayout="column"
+    fxLayoutAlign="center center"
+    (click)="onJoinSlot()">
+    Empty slot - click to join
+  </div>
+</ng-template>

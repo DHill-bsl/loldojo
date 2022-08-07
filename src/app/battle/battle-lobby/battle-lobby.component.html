@@ -1,0 +1,34 @@
+<div fxFlex fxLayout="column" fxLayoutGap="10px">
+  <div fxLayout="row wrap" fxLayoutGap="10px">
+    <app-invite-link fxFlex></app-invite-link>
+    <app-battle-settings fxFlex></app-battle-settings>
+  </div>
+
+  <div class="dark-theme card-radius" >
+    <div class="card card-radius" fxLayout="column" fxLayoutAlign="start stretch">
+      <div fxLayout="row wrap" fxLayoutAlign="space-between center" fxLayoutGap="20px">
+        <div fxFlex fxLayout="column">
+          <h1>Team 1</h1>
+
+          <div fxLayout="column" fxLayoutGap="10px">
+            <app-slot *ngIf="battleConfig.playerCount > 0" [slotNumber]="1"></app-slot>
+            <app-slot *ngIf="battleConfig.playerCount > 2" [slotNumber]="3"></app-slot>
+          </div>
+        </div>
+
+        <strong>VS</strong>
+
+        <div fxFlex fxLayout="column" style="text-align: end">
+          <h1>Team 2</h1>
+
+          <div fxLayout="column" fxLayoutGap="10px">
+            <app-slot *ngIf="battleConfig.playerCount > 1" [slotNumber]="2"></app-slot>
+            <app-slot *ngIf="battleConfig.playerCount > 3" [slotNumber]="4"></app-slot>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-battle-game fxFlex></app-battle-game>
+</div>

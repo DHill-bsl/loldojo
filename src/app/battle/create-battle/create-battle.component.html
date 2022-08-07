@@ -1,0 +1,45 @@
+<form *ngIf="form" fxFlex [formGroup]="form">
+  <div class="dark-theme card-radius" >
+    <div class="card card-radius" fxLayout="column" fxLayoutGap="20px">
+      <h1>Host a battle</h1>
+
+      <div>
+        <h3>Choose your lane</h3>
+        <mat-radio-group fxLayout="column" color="primary" formControlName="lane">
+          <mat-radio-button value="Top">Top</mat-radio-button>
+          <mat-radio-button value="Mid">Mid</mat-radio-button>
+          <mat-radio-button value="Bot">Bot</mat-radio-button>
+          <mat-radio-button value="Random">The gods shall decide my fate</mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+      <div>
+        <h3>Choose your champion format</h3>
+        <mat-radio-group fxLayout="column" color="primary" formControlName="championFormat">
+          <mat-radio-button value="Assassin">Assassin</mat-radio-button>
+          <mat-radio-button value="Fighter">Fighter</mat-radio-button>
+          <mat-radio-button value="Mage">Mage</mat-radio-button>
+          <mat-radio-button value="Marksman">Marksman</mat-radio-button>
+          <mat-radio-button value="Support">Support</mat-radio-button>
+          <mat-radio-button value="Tank">Tank</mat-radio-button>
+          <mat-radio-button value="All">All</mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+      <mat-form-field>
+        <mat-label>Number of kills to win</mat-label>
+        <input type="number" matInput formControlName="killsToWin">
+      </mat-form-field>
+
+      <div fxLayout="row" fxLayoutGap="10px" style="margin-top: 20px;">
+        <button mat-raised-button color="primary" (click)="createBattle(2)">
+          Host a 1v1
+        </button>
+
+        <button mat-raised-button color="primary" (click)="createBattle(4)">
+          Host a 2v2
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

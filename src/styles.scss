@@ -2,6 +2,7 @@
 @import "/src/styles/light-theme";
 @import "/src/styles/dark-theme";
 @import '~@angular/material/theming';
+@import '/src/styles/variables.scss';
 
 body {
   height: 100vh;
@@ -34,7 +35,7 @@ img {
 }
 
 .card {
-  background: #191b2a !important;
+  background: $container-background !important;
   padding: 20px;
 }
 

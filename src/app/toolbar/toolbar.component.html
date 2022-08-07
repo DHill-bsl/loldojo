@@ -1,5 +1,5 @@
-<div fxFlex fxLayout="row" fxLayoutAlign="space-between center" class="toolbar--container__wrapper">
-  <div class="toolbar--container__pagination" fxFlex fxLayout="row">
+<div fxFlex fxLayout="row wrap" fxLayoutAlign="space-between center" class="toolbar--container__wrapper">
+  <div class="toolbar--container__pagination" fxFlex fxLayout="row wrap">
     <button class="pagination--button" mat-flat-button routerLink="/" color="accent">
       <span class="color-alternate">Dashboard</span>
     </button>
@@ -8,6 +8,9 @@
     </button>
     <button class="pagination--button" mat-flat-button routerLink="match-history" color="accent">
       <span class="color-alternate">Match history</span>
+    </button>
+    <button class="pagination--button" mat-flat-button routerLink="battle/create" color="accent">
+      <span class="color-alternate">Battle</span>
     </button>
   </div>
 

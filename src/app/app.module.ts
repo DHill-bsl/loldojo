@@ -23,7 +23,7 @@ import { BattleTableComponent } from './battle-table/battle-table.component';
 import { DojoComponent } from './dojo/dojo.component';
 import { MatStepperModule } from '@angular/material/stepper';
 import { DojoWizardComponent } from './dojo/dojo-wizard/dojo-wizard.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
@@ -47,6 +47,16 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { MatchHistoryComponent } from './match-history/match-history.component';
 import { MatTableModule } from "@angular/material/table";
 import { BattleFirestore } from "./services/battle.firestore";
+import { CreateBattleComponent } from './battle/create-battle/create-battle.component';
+import { GameFirestore } from './battle/game.firestore';
+import { BattleLobbyComponent } from './battle/battle-lobby/battle-lobby.component';
+import { GameResolver } from './battle/game.resolver';
+import { SlotComponent } from './battle/battle-lobby/slot/slot.component';
+import { InviteLinkComponent } from './battle/battle-lobby/invite-link/invite-link.component';
+import { LoginComponent } from './login/login.component';
+import { PlayerGuard } from './guards/player-guard';
+import { BattleSettingsComponent } from './battle/battle-lobby/battle-settings/battle-settings.component';
+import { BattleGameComponent } from './battle/battle-lobby/battle-game/battle-game.component';
 
 const AngularMaterialModules = [
   MatButtonModule,
@@ -84,12 +94,20 @@ const AngularMaterialModules = [
     DojoVictoryComponent,
     DojoBattleChampionComponent,
     QuoteComponent,
-    MatchHistoryComponent
+    MatchHistoryComponent,
+    CreateBattleComponent,
+    BattleLobbyComponent,
+    SlotComponent,
+    InviteLinkComponent,
+    LoginComponent,
+    BattleSettingsComponent,
+    BattleGameComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
     ReactiveFormsModule,
     FlexLayoutModule,
     HttpClientModule,
@@ -103,7 +121,10 @@ const AngularMaterialModules = [
     StyleService,
     ChampionService,
     LolPatchService,
-    BattleFirestore
+    BattleFirestore,
+    GameFirestore,
+    GameResolver,
+    PlayerGuard
   ],
   bootstrap: [AppComponent]
 })

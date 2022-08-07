@@ -1,0 +1,32 @@
+<div class="dark-theme card-radius" fxFlex>
+  <div class="card card-radius" fxLayout="column" fxLayoutGap="10px;" fxFlex>
+    <button *ngIf="gameService.player === battleConfig.host" mat-button mat-raised-button (click)="resetAll()">Reset all</button>
+
+    <h2>Settings</h2>
+
+    <div fxLayout="row" fxLayoutGap="10px">
+      <strong>Lane:</strong>
+      <span>{{ battleConfig.lane }}</span>
+    </div>
+
+    <div fxLayout="row" fxLayoutGap="10px">
+      <strong>Champion format:</strong>
+      <span>{{ battleConfig.championFormat }}</span>
+    </div>
+
+    <div fxLayout="row" fxLayoutGap="10px">
+      <strong>Kills to win:</strong>
+      <span>{{ battleConfig.killsToWin }}</span>
+    </div>
+
+    <div fxLayout="row" fxLayoutGap="10px">
+      <strong>Champions per player:</strong>
+      <span>{{ battleConfig.championsPerPlayer }}</span>
+    </div>
+
+    <div fxLayout="row" fxLayoutGap="10px">
+      <strong>Mode:</strong>
+      <span>{{ battleConfig.playerCount === 2 ? '1v1' : '2v2' }}</span>
+    </div>
+  </div>
+</div>

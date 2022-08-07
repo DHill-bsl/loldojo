@@ -1,0 +1,15 @@
+<div fxFlex>
+  <div class="dark-theme card-radius" fxFlex>
+    <div class="card card-radius" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px;" fxFlex>
+      <div fxLayout="column" *ngIf="!battleStarted && !battleEnded;">
+        <p>Hit the start button once summoners rift has loaded</p>
+        <button
+          (click)="startBattle()"
+          mat-raised-button
+          color="primary">
+          Start
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
