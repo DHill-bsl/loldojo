@@ -4,25 +4,30 @@
 
 <ng-template #main>
   <div
-    style.background-image="url({{championImage}})"
     *ngIf="slot"
     fxFlex
-    class="container occupied-slot"
+    style="position: relative"
+    class="container"
     fxLayout="column"
     [fxLayoutAlign]="slotNumber % 2 === 0 ? 'space-between end' : 'space-between start'">
-    <div fxLayout="row" fxLayoutAlign="start center">
-      {{ slot.playerName }}
-      <mat-icon class="leave" *ngIf="isMyPlayer" matTooltip="Leave slot" (click)="onLeaveSlot()">close</mat-icon>
-    </div>
 
-    <mat-form-field *ngIf="isMyPlayer">
-      <mat-label>Choose your champion</mat-label>
-      <mat-select [(ngModel)]="selectedChampion" (valueChange)="selectChampion($event)">
-        <mat-option [value]="champion.name" *ngFor="let champion of getChampionList()">
-          {{ champion.name }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+    <app-champion-images
+      #champions
+      (selected)="selectChampion($event)"
+      [champions]="getChampionList()"
+      [selectedChampion]="selectedChampion"
+      [editable]="isMyPlayer">
+    </app-champion-images>
+
+    <div fxLayout="column" fxLayoutAlign="start center" style="position: absolute; left: 5%; top: 10%;">
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <Strong>{{ slot.playerName }}</Strong>
+        <mat-icon class="leave" *ngIf="isMyPlayer" matTooltip="Leave slot" (click)="onLeaveSlot()">close</mat-icon>
+      </div>
+
+      <strong style="color: red !important;" *ngIf="!champions.selectedChampion">Not ready</strong>
+      <strong style="color: mediumseagreen !important;" *ngIf="champions.selectedChampion">Ready</strong>
+    </div>
   </div>
 </ng-template>
 

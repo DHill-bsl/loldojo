@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DojoVictoryComponent } from './dojo-victory.component';
+import { ChampionImagesComponent } from './champion-images.component';
 
-describe('DojoVictoryComponent', () => {
-  let component: DojoVictoryComponent;
-  let fixture: ComponentFixture<DojoVictoryComponent>;
+describe('ChampionImagesComponent', () => {
+  let component: ChampionImagesComponent;
+  let fixture: ComponentFixture<ChampionImagesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DojoVictoryComponent ]
+      declarations: [ ChampionImagesComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DojoVictoryComponent);
+    fixture = TestBed.createComponent(ChampionImagesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

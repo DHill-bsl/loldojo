@@ -1,0 +1,52 @@
+<div fxFlex>
+  <h1>The battle has begun</h1>
+
+  <h2>Game rules</h2>
+  <div>{{ battleConfig.playerCount === 2 ? '1v1' : '2v2' }}</div>
+  <div>In the {{ battleConfig.lane }} lane</div>
+  <div>With {{ battleConfig.championFormat }} champions</div>
+  <div>First team to {{ battleConfig.killsToWin }} kills wins</div>
+
+  <h2 style="margin-top: 20px;">Teams</h2>
+  <div>Team 1:</div>
+  <div *ngIf="battleConfig.playerCount > 0">
+    {{ battleConfig.slot1!.playerName }} playing {{ getChampion(battleConfig.slot1!.playerName!).selectedChampion }}
+  </div>
+  <div *ngIf="battleConfig.playerCount > 2">
+    {{ battleConfig.slot3!.playerName }} playing {{ getChampion(battleConfig.slot3!.playerName!).selectedChampion }}
+  </div>
+
+  <div style="margin-top: 20px;">Team 2:</div>
+  <div *ngIf="battleConfig.playerCount > 1">
+    {{ battleConfig.slot2!.playerName }} playing {{ getChampion(battleConfig.slot2!.playerName!).selectedChampion }}
+  </div>
+  <div *ngIf="battleConfig.playerCount > 3">
+    {{ battleConfig.slot4!.playerName }} playing {{ getChampion(battleConfig.slot4!.playerName!).selectedChampion }}
+  </div>
+
+  <div style="margin-top: 20px;" *ngIf="isHost">
+    <button
+      *ngIf="!hasMatchEnded"
+      mat-button
+      mat-raised-button
+      color="primary"
+      (click)="hasMatchEnded = true; stopTimer()">
+      End match
+    </button>
+
+    <form *ngIf="hasMatchEnded && teamScoreForm" [formGroup]="teamScoreForm" fxLayout="column" fxLayoutAlign="start start">
+      <mat-form-field style="width: 200px">
+        <mat-label>Team 1 kills</mat-label>
+        <input matInput type="number" formControlName="team1Score">
+      </mat-form-field>
+
+      <mat-form-field style="width: 200px">
+        <mat-label>team 2 kills</mat-label>
+        <input matInput type="number" formControlName="team2Score">
+      </mat-form-field>
+
+      <button mat-button mat-raised-button color="primary" (click)="endGame()">End game</button>
+    </form>
+  </div>
+</div>
+

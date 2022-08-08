@@ -1,0 +1,16 @@
+<div fxLayout="row" class="champion-img-container" *ngIf="champions">
+  <div fxFlex *ngFor="let champion of champions; let first; let last; let i = index;">
+    <div
+      [style.cursor]="editable ? 'pointer' : 'default'"
+      (click)="editable ? selected.emit(champion) : ''"
+      (mouseenter)="hoverIndex = i"
+      (mouseleave)="hoverIndex = -1"
+      [style.background-color]="champion.name === selectedChampion && editable ? 'transparent' : ''"
+      style.background-image="url({{championImages[i]}})"
+      [ngClass]="{ 'left': i === 0, 'right': i === (champions.length)-1 }"
+      class="champion-img"
+      fxFlex>
+      <strong *ngIf="(hoverIndex === i || champion.name === selectedChampion) && editable">{{ champion.name }}</strong>
+    </div>
+  </div>
+</div>

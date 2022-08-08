@@ -2,8 +2,15 @@
   <div class="dark-theme card-radius" fxFlex>
     <div class="card card-radius" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px;" fxFlex>
       <div fxLayout="column" *ngIf="!battleStarted && !battleEnded;">
-        <p>Hit the start button once summoners rift has loaded</p>
+        <p *ngIf="!allJoined">Waiting for more players to join...</p>
+        <p *ngIf="allJoined">{{ playersReady }} out of {{ totalPlayers }} players ready</p>
+        <h2 *ngIf="allJoined && playersReady === totalPlayers">All players ready!</h2>
+        <p *ngIf="allJoined && playersReady === totalPlayers">Create the custom game in League of Legends and invite each player to their respective teams.</p>
+        <p *ngIf="allJoined && playersReady === totalPlayers">
+          The host will start the game on Loldojo once all players have loaded into summoners rift. You will be able to check that the players chose the correct champion ;)
+        </p>
         <button
+          *ngIf="gameService.player === gameService.battleConfig.host && allJoined &&  playersReady === totalPlayers"
           (click)="startBattle()"
           mat-raised-button
           color="primary">

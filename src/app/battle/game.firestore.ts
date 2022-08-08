@@ -1,6 +1,6 @@
 ﻿import { Injectable } from '@angular/core';
 import { CollectionReference, DocumentData } from '@firebase/firestore';
-import { addDoc, collection, doc, Firestore, getDoc, updateDoc } from '@angular/fire/firestore';
+import { addDoc, collection, deleteDoc, doc, Firestore, getDoc, updateDoc } from '@angular/fire/firestore';
 import { BattleConfig } from './battle-config';
 
 @Injectable()
@@ -29,5 +29,9 @@ export class GameFirestore {
     await updateDoc(documentRef, {
       ...battleConfig
     });
+  }
+
+  public async delete(id: string) {
+    await deleteDoc(doc(this.db, this.docPath, id));
   }
 }

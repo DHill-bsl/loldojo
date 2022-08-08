@@ -1,6 +1,6 @@
 ﻿import { Injectable, OnDestroy } from '@angular/core';
 import { BattleConfig } from './battle-config';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GameFirestore } from './game.firestore';
 import { doc, onSnapshot } from '@angular/fire/firestore';
 import firebase from 'firebase/compat';
@@ -18,6 +18,7 @@ export class GameService implements OnDestroy {
   private readonly unsub: Unsubscribe;
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private gameFirestore: GameFirestore,
     private championService: ChampionService,
@@ -32,6 +33,10 @@ export class GameService implements OnDestroy {
       const source = doc.metadata.hasPendingWrites ? 'local' : 'server';
 
       if (source === 'server') {
+        if (doc.data() === undefined) {
+          this.router.navigate(['/']);
+          return;
+        }
         this.battleConfig = doc.data() as BattleConfig;
       }
     });
@@ -83,6 +88,11 @@ export class GameService implements OnDestroy {
     this.battleConfig.slot3 = {};
     this.battleConfig.slot4 = {};
 
+    this.gameFirestore.update(this.gameId, this.battleConfig);
+  }
+
+  public startGame(status: 'setup' | 'inProgress' | 'started' | 'ended') {
+    this.battleConfig.gameStatus = status;
     this.gameFirestore.update(this.gameId, this.battleConfig);
   }
 
@@ -150,7 +160,10 @@ export class GameService implements OnDestroy {
 
   private getRandomChampion(championList: Champion[]): Champion {
     const random = Math.floor(Math.random() * championList.length);
-    console.log(championList[random]);
     return championList[random];
+  }
+
+  public endGame() {
+    this.gameFirestore.delete(this.gameId);
   }
 }

@@ -12,6 +12,7 @@ export interface BattleConfig {
   slot3?: Slot;
   slot4?: Slot;
   playerData: PlayerData[];
+  gameStatus: 'setup' | 'inProgress' | 'started' | 'ended';
 }
 
 export interface PlayerData {

@@ -39,41 +39,6 @@ export class SlotComponent implements OnInit {
     return this.playerData?.selectedChampion ?? '';
   }
 
-  public set selectedChampion(value: string) {
-    if (this.playerData) {
-      this.playerData.selectedChampion = value;
-    }
-  }
-
-  public get championImage() {
-    const champion = this.playerData?.champions.find(x => x.name === this.selectedChampion);
-
-    if (champion) {
-      const name = champion.image.full.slice(0, -4);
-      const image = `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${name}_0.jpg`;
-
-      if (this.currentChampionImage !== image) {
-        this.currentChampionImage = image;
-        return this.currentChampionImage;
-      } else {
-        return this.currentChampionImage;
-      }
-    } else {
-      this.currentChampionImage = '';
-    }
-    return this.currentChampionImage;
-  }
-
-  public getChampionList(): Champion[] | undefined {
-    const playerData = this.gameService.battleConfig.playerData.find(x => x.name === this.slot?.playerName);
-
-    if (playerData) {
-      return playerData.champions;
-    }
-
-    return undefined;
-  }
-
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -81,6 +46,16 @@ export class SlotComponent implements OnInit {
   ) { }
 
   public ngOnInit(): void { }
+
+  public getChampionList(): Champion[] {
+    const playerData = this.gameService.battleConfig.playerData.find(x => x.name === this.slot?.playerName);
+
+    if (playerData) {
+      return playerData.champions;
+    }
+
+    return [];
+  }
 
   public onJoinSlot() {
     this.gameService.joinSlot(this.slotNumber);
@@ -90,7 +65,7 @@ export class SlotComponent implements OnInit {
     this.gameService.leaveSlot();
   }
 
-  public selectChampion(champion: string) {
-    this.gameService.setChampion(this.player, champion);
+  public selectChampion(champion: Champion) {
+    this.gameService.setChampion(this.player, champion.name);
   }
 }

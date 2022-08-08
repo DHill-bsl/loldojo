@@ -1,9 +1,0 @@
-<div fxFlexFill>
-  <ng-container *ngIf="!data; else battle">
-    <app-dojo-wizard (complete)="data = $event"></app-dojo-wizard>
-  </ng-container>
-
-  <ng-template #battle>
-    <app-dojo-battle [setupData]="data"></app-dojo-battle>
-  </ng-template>
-</div>
