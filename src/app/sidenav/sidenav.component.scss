@@ -1,10 +1,30 @@
 :host {
   display: block;
 }
+.sidenav--wrapper {
+  border-radius: 0px 15px 0px 0px;
+}
+
+.sidenav--content__navigation {
+  gap: 30px;
+  margin: 0 auto;
+}
+
+.sidenav--logo__container {
+  height: 50px;
+  margin-bottom: 50px;
+}
 
 .sidenav--content__logo:hover {
   -webkit-animation: rotate-center 0.6s cubic-bezier(0.645, 0.045, 0.355, 1.000) 100ms both;
   animation: rotate-center 0.6s cubic-bezier(0.645, 0.045, 0.355, 1.000) 100ms both;
+}
+
+.sidenav--content__logo {
+  max-height: 90%;
+  max-width: 90%;
+  height: auto;
+  cursor: pointer;
 }
 
 @-webkit-keyframes rotate-center {
@@ -26,21 +46,4 @@
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
   }
-}
-
-.sidenav--content__logo {
-  padding: 20px;
-}
-
-.sidenav--content__logo {
-  max-height: 100%;
-  width: 35px;
-  height: auto;
-  margin-bottom: 50px;
-  cursor: pointer;
-}
-
-.sidenav--content__navigation {
-  gap: 30px;
-  margin: 0 auto;
 }

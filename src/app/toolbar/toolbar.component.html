@@ -1,21 +1,22 @@
 <div fxFlex fxLayout="row wrap" fxLayoutAlign="space-between center" class="toolbar--container__wrapper">
   <div class="toolbar--container__pagination" fxFlex fxLayout="row wrap">
-    <button class="pagination--button" mat-flat-button routerLink="/" color="accent">
+    <button mat-button mat-flat-button class="pagination--button" routerLink="/" color="accent">
       <span class="color-alternate">Dashboard</span>
     </button>
-    <button class="pagination--button" mat-flat-button routerLink="dojo" color="accent">
+    <button mat-button mat-flat-button class="pagination--button" routerLink="dojo" color="accent">
       <span class="color-alternate">The Dojo</span>
     </button>
-    <button class="pagination--button" mat-flat-button routerLink="match-history" color="accent">
+    <button mat-button mat-flat-button class="pagination--button" routerLink="match-history" color="accent">
       <span class="color-alternate">Match history</span>
     </button>
-    <button class="pagination--button" mat-flat-button routerLink="battle/create" color="accent">
+    <button mat-button mat-flat-button class="pagination--button" routerLink="battle/create" color="accent">
       <span class="color-alternate">Battle</span>
     </button>
   </div>
 
-  <div fxLayout="row" fxLayoutGap="10px">
-    <div class="toolbar--container__logo"><img src="../../assets/Logo-wht-txt.png" alt="loldojo-logo"></div>
+  <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="center center">
+    <div fxHide fxShow.gt-sm class="toolbar--container__logo"><img src="../../assets/Logo-wht-txt.png" alt="loldojo-logo"></div>
+    <div fxShow fxHide.gt-sm class="toolbar--container__logo"><img src="../../assets/Logo--Head.png" alt="loldojo-logo"></div>
     <button color="primary" mat-raised-button mat-icon-button (click)="toggleTheme()">
       <mat-icon>
         <span class="color-alternate">brush</span>
