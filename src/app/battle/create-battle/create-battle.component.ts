@@ -35,7 +35,8 @@ export class CreateBattleComponent implements OnInit {
       lane: this.form?.get('lane')?.value,
       championFormat: this.form?.get('championFormat')?.value,
       killsToWin: this.form?.get('killsToWin')?.value,
-      playerData: []
+      playerData: [],
+      gameStatus: 'setup'
     });
     this.router.navigate([`/battle/lobby/${response.id}`]);
   }

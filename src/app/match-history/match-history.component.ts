@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BattleFirestore } from "../services/battle.firestore";
-import { BattleSummary } from "../dojo/battle-summary";
+import { BattleSummary } from '../battle/battle-summary';
+import { MatchHistoryFirestore } from '../services/match-history.firestore';
 
 @Component({
   selector: 'app-match-history',
@@ -10,7 +10,7 @@ import { BattleSummary } from "../dojo/battle-summary";
 export class MatchHistoryComponent implements OnInit {
   public displayedColumns = ['team1', 'team2', 'winners', 'kills', 'timeElapsed', 'lane', 'championFormat'];
   public dataSource: BattleSummary[] = [];
-  constructor(private battleFirestore: BattleFirestore) { }
+  constructor(private battleFirestore: MatchHistoryFirestore) { }
 
   public async ngOnInit() {
     this.dataSource = await this.battleFirestore.getBattles();

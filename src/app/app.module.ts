@@ -20,24 +20,19 @@ import { MatListModule } from '@angular/material/list';
 import { BattleContainerComponent } from './battle-container/battle-container.component';
 import { HallOfFameComponent } from './hall-of-fame/hall-of-fame.component';
 import { BattleTableComponent } from './battle-table/battle-table.component';
-import { DojoComponent } from './dojo/dojo.component';
 import { MatStepperModule } from '@angular/material/stepper';
-import { DojoWizardComponent } from './dojo/dojo-wizard/dojo-wizard.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
-import { DojoBattleComponent } from './dojo/dojo-battle/dojo-battle.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { TemplateComponent } from './template/template.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { StyleService } from "./services/style.service";
-import { DojoVictoryComponent } from './dojo/dojo-victory/dojo-victory.component';
 import { ChampionService } from "./services/champion.service";
 import { HttpClientModule } from "@angular/common/http";
 import { LolPatchService } from "./services/lol-patch.service";
-import { DojoBattleChampionComponent } from './dojo/dojo-battle/dojo-battle-champion/dojo-battle-champion.component';
 import { MatTooltipModule } from "@angular/material/tooltip";
 import { MatButtonToggleModule } from "@angular/material/button-toggle";
 import { QuoteComponent } from './quote/quote.component';
@@ -46,7 +41,6 @@ import { MatInputModule } from "@angular/material/input";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { MatchHistoryComponent } from './match-history/match-history.component';
 import { MatTableModule } from "@angular/material/table";
-import { BattleFirestore } from "./services/battle.firestore";
 import { CreateBattleComponent } from './battle/create-battle/create-battle.component';
 import { GameFirestore } from './battle/game.firestore';
 import { BattleLobbyComponent } from './battle/battle-lobby/battle-lobby.component';
@@ -57,6 +51,9 @@ import { LoginComponent } from './login/login.component';
 import { PlayerGuard } from './guards/player-guard';
 import { BattleSettingsComponent } from './battle/battle-lobby/battle-settings/battle-settings.component';
 import { BattleGameComponent } from './battle/battle-lobby/battle-game/battle-game.component';
+import { ChampionImagesComponent } from './battle/battle-lobby/slot/champion-images/champion-images.component';
+import { BattleInProgressComponent } from './battle/battle-lobby/battle-in-progress/battle-in-progress.component';
+import { MatchHistoryFirestore } from './services/match-history.firestore';
 
 const AngularMaterialModules = [
   MatButtonModule,
@@ -85,14 +82,9 @@ const AngularMaterialModules = [
     BattleContainerComponent,
     HallOfFameComponent,
     BattleTableComponent,
-    DojoComponent,
-    DojoWizardComponent,
-    DojoBattleComponent,
     SidenavComponent,
     TemplateComponent,
     ToolbarComponent,
-    DojoVictoryComponent,
-    DojoBattleChampionComponent,
     QuoteComponent,
     MatchHistoryComponent,
     CreateBattleComponent,
@@ -101,7 +93,9 @@ const AngularMaterialModules = [
     InviteLinkComponent,
     LoginComponent,
     BattleSettingsComponent,
-    BattleGameComponent
+    BattleGameComponent,
+    ChampionImagesComponent,
+    BattleInProgressComponent
   ],
   imports: [
     BrowserModule,
@@ -121,7 +115,7 @@ const AngularMaterialModules = [
     StyleService,
     ChampionService,
     LolPatchService,
-    BattleFirestore,
+    MatchHistoryFirestore,
     GameFirestore,
     GameResolver,
     PlayerGuard
