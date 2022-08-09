@@ -1,39 +1,32 @@
 :host {
-  font-family: 'exo', sans-serif;
-  color: #fff;
-}
-
-.container {
-  background: linear-gradient(to right, #191b2a, #20192a);
-  padding: 0 10px 20px 10px;
-  border-radius: 20px;
+  display: block;
+  width: 100%;
 }
 
 .battle--container__wrapping {
-  padding: 30px;
+  width: 100%;
+  height: fit-content;
   position: relative;
 }
 
-.battle--container__image img{
+.battle--container__content {
+  z-index: 1;
+}
+
+.battle--container__desc {
+  padding-bottom: 15px;
+}
+
+.battle--container__button {
+  width: fit-content;
+}
+
+.battle--container__image img {
+  height: 125%;
+  width: auto;
   position: absolute;
-  height: 140%;
-  left: 75%;
-  bottom: 0%;
-}
-
-.battle--container__text {
-  margin-bottom: 20px;
-}
-
-.battle--container__description {
-  font-size: 0.9rem;
-  color: #606377;
-  font-size: 400;
-  line-height: 1.7;
-}
-
-.battle--container__title {
-  font-size: 2rem !important;
-  font-weight: 700;
-  margin-bottom: 10px;
+  bottom: 0;
+  right: 3%;
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, black 30%);
+  mask-image: linear-gradient(to top, transparent 0%, black 30%);
 }
