@@ -29,9 +29,8 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/styles/light-theme.scss",
-              "src/styles/dark-theme.scss",
-              "src/styles/variables.scss"
+              "src/styles/variables.scss",
+              "src/styles/loldojo-theme.scss"
             ],
             "scripts": []
           },
