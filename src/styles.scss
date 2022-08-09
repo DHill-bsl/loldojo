@@ -1,6 +1,7 @@
 @use "@angular/material" as mat;
 @import "/src/styles/light-theme";
 @import "/src/styles/dark-theme";
+@import "/src/styles/loldojo-theme.scss";
 @import '~@angular/material/theming';
 @import '/src/styles/variables.scss';
 
@@ -9,21 +10,17 @@ body {
   margin: 0;
 
   //Light theme background color
-  background: mat.get-color-from-palette($my-app-light-background, 100) !important;
+  background: mat.get-color-from-palette($mat-light-theme-background) !important;
 }
 
 * {
   //Light theme default text color
-  color: mat.get-color-from-palette($my-app-light-foreground, 900) !important;
+  color: $dark-text;
 }
 
 .color-alternate {
   //Light theme alternate text color - for darker backgrounds
-  color: mat.get-color-from-palette($my-app-light-foreground, 100) !important;
-}
-
-mat-icon {
-  font-size: 22px !important;
+  color: $light-text !important;
 }
 
 img {
@@ -35,7 +32,7 @@ img {
 }
 
 .card {
-  background: $container-background !important;
+  background: mat.get-color-from-palette($theme-primary) !important;
   padding: 20px;
 }
 
@@ -43,42 +40,15 @@ img {
   border-radius: 20px !important;
 }
 
-$typography-configuration: mat.define-typography-config(
-  $font-family: '"Exo", sans-serif'
-);
 
-@include mat.core($typography-configuration);
+@include mat.core($fontConfig);
 
 .dark-theme {
-  background: mat.get-color-from-palette($my-app-dark-background, 900) !important;
+  background: mat.get-color-from-palette($mat-dark-theme-background) !important;
   * {
-    color: mat.get-color-from-palette($my-app-light-foreground, 100) !important;
+    color: $light-text !important;
   }
-  @include mat.all-component-colors($my-app-dark-theme);
+  @include mat.all-component-colors($altTheme);
 }
 
-@include mat.all-component-themes($my-app-light-theme);
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 8px 0;
-}
-
-p {
-  margin: 0;
-}
-
-a,
-a:visited,
-a:hover {
-  color: #1976d2;
-  text-decoration: none;
-}
-
-a:hover {
-  color: #125699;
-}
+@include mat.all-component-themes($theme);
