@@ -1,9 +1,6 @@
 @use "@angular/material" as mat;
-@import "/src/styles/light-theme";
-@import "/src/styles/dark-theme";
 @import "/src/styles/loldojo-theme.scss";
 @import '~@angular/material/theming';
-@import '/src/styles/variables.scss';
 
 body {
   height: 100vh;
