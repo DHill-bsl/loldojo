@@ -30,7 +30,9 @@ img {
 
 .card {
   background: mat.get-color-from-palette($theme-primary) !important;
-  padding: 20px;
+  padding: 25px;
+  border-radius: 15px;
+  color: $light-text !important;
 }
 
 .card-radius {
